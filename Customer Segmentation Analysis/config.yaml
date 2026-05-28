@@ -1,0 +1,47 @@
+data:
+  n_samples: 500
+  random_state: 42
+
+  features:
+    age:
+      min: 18
+      max: 70
+
+    income:
+      min: 15
+      max: 150
+
+    spending_score:
+      min: 1
+      max: 100
+
+    purchase_frequency:
+      min: 1
+      max: 50
+
+preprocessing:
+  normalization_method: "standardscaler"
+  handle_missing: true
+  outlier_detection: false
+
+clustering:
+  method: "kmeans"
+  optimal_k_range: [2,10]
+  final_k: 5
+  max_iterations: 300
+  n_init: 10
+  random_state: 42
+
+visualization:
+  dpi: 300
+  style: "seaborn-v0_8"
+  figsize_2d: [12,8]
+  figsize_3d: [14,10]
+  save_plots: true
+  plot_directory: "./outputs"
+
+output:
+  csv_file: "./data/customers.csv"
+  report_file: "./outputs/analysis_report.md"
+  save_model: true
+  model_file: "./outputs/clustering_model.pkl"
